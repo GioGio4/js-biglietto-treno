@@ -1,7 +1,4 @@
-// TRACCIA:
 
-
-// L'output del prezzo finale va messo fuori in forma umana (con massimo due decimali, per indicare centesimi sul prezzo). Questo richiederà un minimo di ricerca.
 
 // VARIABILI:
 
@@ -19,19 +16,26 @@ let user_age = parseInt(prompt("Quanti anni hai?"));
 let total_price = ((user_km * price_km));
 
 // Va applicato uno sconto del 20% per i minorenni.
-// Sconto minorenni
 let discount_young = ((total_price / 100) * 20);
 let price_discount_young = ((total_price - discount_young));
 
 // Va applicato uno sconto del 40% per gli over 65.
-// // Sconto over 65
 let discount_over = ((total_price / 100) * 40);
-let price_over = ((total_price - discount_over));
+let price_discount_over = ((total_price - discount_over));
 
 
-// if (user_age < 18) {
+// STAMPA PREZZO FINALE 
 
-// }
-// else {
+// L'output del prezzo finale va messo fuori in forma umana (con massimo due decimali, per indicare centesimi sul prezzo).
 
-// }
+if (user_age < 18) {
+    document.getElementById("train_price").innerHTML = ("Il prezzo del tuo biglietto: €" + price_discount_young.toFixed(2));
+}
+
+else if (user_age > 65) {
+    document.getElementById("train_price").innerHTML = ("Il prezzo del tuo biglietto: €" + price_discount_over.toFixed(2));
+}
+
+else {
+    document.getElementById("train_price").innerHTML = ("Il prezzo del tuo bieglietto: €" + total_price.toFixed(2));
+}
